@@ -1,0 +1,10 @@
+Debug/
+Release/
+*.user
+*.suo
+*.sdf
+*.opensdf
+ipch/
+*.pch
+AppPackages/
+Extras/winrt/DirectXTK

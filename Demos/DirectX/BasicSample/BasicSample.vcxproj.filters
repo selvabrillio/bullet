@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Common">
+      <UniqueIdentifier>91d3de56-528d-48e8-b530-436cd9be92fa</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets">
+      <UniqueIdentifier>0d382ec3-41f7-40b1-ae0c-f136639ed43a</UniqueIdentifier>
+    </Filter>
+    <Image Include="Assets\Logo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SmallLogo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\StoreLogo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.png">
+      <Filter>Assets</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BasicSample.cpp" />
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="Cube.cpp" />
+    <ClCompile Include="CubeMotionState.cpp" />
+    <ClCompile Include="Direct3DBase.cpp" />
+    <ClCompile Include="Ground.cpp" />
+    <ClCompile Include="Level.cpp" />
+    <ClCompile Include="Physics.cpp" />
+    <ClCompile Include="Renderer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BasicSample.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="BasicTimer.h" />
+    <ClInclude Include="Cube.h" />
+    <ClInclude Include="CubeMotionState.h" />
+    <ClInclude Include="Direct3DBase.h" />
+    <ClInclude Include="DirectXHelper.h" />
+    <ClInclude Include="Ground.h" />
+    <ClInclude Include="Level.h" />
+    <ClInclude Include="Physics.h" />
+    <ClInclude Include="Renderer.h" />
+    <ClInclude Include="Fps.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BasicSample_TemporaryKey.pfx" />
+    <None Include="Assets\italic.spritefont">
+      <Filter>Assets</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\seafloor.dds">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\windowslogo.dds">
+      <Filter>Assets</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

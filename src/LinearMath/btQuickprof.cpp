@@ -12,6 +12,7 @@
 
 // Credits: The Clock class was inspired by the Timer classes in 
 // Ogre (www.ogre3d.org).
+// Portions Copyright © Microsoft Open Technologies, Inc. All rights reserved.
 
 #include "btQuickprof.h"
 
@@ -59,7 +60,7 @@ struct btClockData
 
 #ifdef BT_USE_WINDOWS_TIMERS
 	LARGE_INTEGER mClockFrequency;
-	DWORD mStartTick;
+	LONGLONG mStartTick;
 	LONGLONG mPrevElapsedTime;
 	LARGE_INTEGER mStartTime;
 #else
@@ -105,7 +106,7 @@ void btClock::reset()
 {
 #ifdef BT_USE_WINDOWS_TIMERS
 	QueryPerformanceCounter(&m_data->mStartTime);
-	m_data->mStartTick = GetTickCount();
+	m_data->mStartTick = GetTickCount64();
 	m_data->mPrevElapsedTime = 0;
 #else
 #ifdef __CELLOS_LV2__
@@ -136,7 +137,7 @@ unsigned long int btClock::getTimeMilliseconds()
 		// Check for unexpected leaps in the Win32 performance counter.  
 	// (This is caused by unexpected data across the PCI to ISA 
 		// bridge, aka south bridge.  See Microsoft KB274323.)
-		unsigned long elapsedTicks = GetTickCount() - m_data->mStartTick;
+		unsigned long elapsedTicks = (unsigned long)(GetTickCount64() - m_data->mStartTick);
 		signed long msecOff = (signed long)(msecTicks - elapsedTicks);
 		if (msecOff < -100 || msecOff > 100)
 		{
@@ -194,7 +195,7 @@ unsigned long int btClock::getTimeMicroseconds()
 		// Check for unexpected leaps in the Win32 performance counter.  
 		// (This is caused by unexpected data across the PCI to ISA 
 		// bridge, aka south bridge.  See Microsoft KB274323.)
-		unsigned long elapsedTicks = GetTickCount() - m_data->mStartTick;
+		unsigned long elapsedTicks = (unsigned long)(GetTickCount64() - m_data->mStartTick);
 		signed long msecOff = (signed long)(msecTicks - elapsedTicks);
 		if (msecOff < -100 || msecOff > 100)
 		{
@@ -318,7 +319,7 @@ CProfileNode * CProfileNode::Get_Sub_Node( const char * name )
 	}
 
 	// We didn't find it, so add it
-	
+
 	CProfileNode * node = new CProfileNode( name, this );
 	node->Sibling = Child;
 	Child = node;
@@ -330,7 +331,7 @@ void	CProfileNode::Reset( void )
 {
 	TotalCalls = 0;
 	TotalTime = 0.0f;
-	
+
 
 	if ( Child ) {
 		Child->Reset();
@@ -446,7 +447,7 @@ void	CProfileManager::Start_Profile( const char * name )
 	if (name != CurrentNode->Get_Name()) {
 		CurrentNode = CurrentNode->Get_Sub_Node( name );
 	} 
-	
+
 	CurrentNode->Call();
 }
 
@@ -516,9 +517,9 @@ void	CProfileManager::dumpRecursive(CProfileIterator* profileIterator, int spaci
 	printf("Profiling: %s (total running time: %.3f ms) ---\n",	profileIterator->Get_Current_Parent_Name(), parent_time );
 	float totalTime = 0.f;
 
-	
+
 	int numChildren = 0;
-	
+
 	for (i = 0; !profileIterator->Is_Done(); i++,profileIterator->Next())
 	{
 		numChildren++;
@@ -539,7 +540,7 @@ void	CProfileManager::dumpRecursive(CProfileIterator* profileIterator, int spaci
 	}
 	for (i=0;i<spacing;i++)	printf(".");
 	printf("%s (%.3f %%) :: %.3f ms\n", "Unaccounted:",parent_time > SIMD_EPSILON ? ((parent_time - accumulated_time) / parent_time) * 100 : 0.f, parent_time - accumulated_time);
-	
+
 	for (i=0;i<numChildren;i++)
 	{
 		profileIterator->Enter_Child(i);

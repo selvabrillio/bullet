@@ -9,7 +9,7 @@
 
 // Credits: The Clock class was inspired by the Timer classes in 
 // Ogre (www.ogre3d.org).
-
+// Portions Copyright © Microsoft Open Technologies, Inc. All rights reserved.
 
 
 #ifndef BT_QUICK_PROF_H

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Cube.cpp" />
+    <ClCompile Include="CubeMotionState.cpp" />
+    <ClCompile Include="Ground.cpp" />
+    <ClCompile Include="Level.cpp" />
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="Physics.cpp" />
+    <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="Direct3DBase.cpp" />
+    <ClCompile Include="Sphere.cpp" />
+    <ClCompile Include="SphereMotionState.cpp" />
+    <ClCompile Include="Scope.cpp" />
+    <ClCompile Include="AdvancedSample.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Cube.h" />
+    <ClInclude Include="CubeMotionState.h" />
+    <ClInclude Include="Direct3DBase.h" />
+    <ClInclude Include="Ground.h" />
+    <ClInclude Include="Level.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="Physics.h" />
+    <ClInclude Include="Position.h" />
+    <ClInclude Include="Renderer.h" />
+    <ClInclude Include="DirectXHelper.h" />
+    <ClInclude Include="BasicTimer.h" />
+    <ClInclude Include="Sphere.h" />
+    <ClInclude Include="SphereMotionState.h" />
+    <ClInclude Include="Transform.h" />
+    <ClInclude Include="Scope.h" />
+    <ClInclude Include="AdvancedSample.h" />
+    <ClInclude Include="Fps.h" />
+    <ClInclude Include="AdditionalVectorMath.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{534a5ac4-9384-4447-aecd-b3442f730414}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\italic.spritefont">
+      <Filter>Resources</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\seafloor.dds">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="Assets\SmallLogo.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="Assets\StoreLogo.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="Assets\windowslogo.dds">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="Assets\Logo.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="Assets\grass.dds">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="Assets\Scope.dds">
+      <Filter>Resources</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

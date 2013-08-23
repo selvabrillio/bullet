@@ -1,5 +1,6 @@
 /*
 Copyright (c) 2003-2009 Erwin Coumans  http://bullet.googlecode.com
+Portions Copyright © Microsoft Open Technologies, Inc. All rights reserved.
 
 This software is provided 'as-is', without any express or implied warranty.
 In no event will the authors be held liable for any damages arising from the use of this software.
@@ -48,6 +49,11 @@ inline int	btGetVersion()
 			#define ATTRIBUTE_ALIGNED16(a) a
 			#define ATTRIBUTE_ALIGNED64(a) a
 			#define ATTRIBUTE_ALIGNED128(a) a
+		#elif (_M_ARM)
+			#define SIMD_FORCE_INLINE __forceinline
+			#define ATTRIBUTE_ALIGNED16(a) __declspec() a
+			#define ATTRIBUTE_ALIGNED64(a) __declspec() a
+			#define ATTRIBUTE_ALIGNED128(a) __declspec () a
 		#else
 			//#define BT_HAS_ALIGNED_ALLOCATOR
 			#pragma warning(disable : 4324) // disable padding warning
